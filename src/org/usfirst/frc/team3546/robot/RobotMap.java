@@ -1,0 +1,59 @@
+package org.usfirst.frc.team3546.robot;
+
+import edu.wpi.first.wpilibj.DoubleSolenoid;
+import edu.wpi.first.wpilibj.Relay;
+import edu.wpi.first.wpilibj.RobotDrive;
+import edu.wpi.first.wpilibj.SpeedController;
+import edu.wpi.first.wpilibj.VictorSP;
+
+/**
+ * The RobotMap is a mapping from the ports sensors and actuators are wired into
+ * to a variable name. This provides flexibility changing wiring, makes checking
+ * the wiring easier and significantly reduces the number of magic numbers
+ * floating around.
+ */
+public class RobotMap {
+	
+	public static RobotDrive driveTrainMotors;
+	public static Relay ballIntakeSweeperBarRotationMotor;
+	public static DoubleSolenoid ballIntakeSweeperBarPositionSolenoid;
+	
+	public static void init(){
+		
+		SpeedController frontLeftMotor = new VictorSP(3);
+		SpeedController frontRightMotor = new VictorSP(2);
+		SpeedController backLeftMotor = new VictorSP(1);
+		SpeedController backRightMotor = new VictorSP(0);
+
+		driveTrainMotors = new RobotDrive(frontLeftMotor, backLeftMotor, frontRightMotor, backRightMotor);
+		
+		driveTrainMotors.setSafetyEnabled(false);
+		driveTrainMotors.setExpiration(.1);
+		driveTrainMotors.setSensitivity(.5);
+		
+		//max output 0-100%
+		driveTrainMotors.setMaxOutput(.2);
+		
+		//inverts the direction of all motors
+		driveTrainMotors.setInvertedMotor(RobotDrive.MotorType.kFrontLeft, true);
+		driveTrainMotors.setInvertedMotor(RobotDrive.MotorType.kFrontRight, true);
+		driveTrainMotors.setInvertedMotor(RobotDrive.MotorType.kRearLeft, true);
+		driveTrainMotors.setInvertedMotor(RobotDrive.MotorType.kRearRight, true);
+		
+		ballIntakeSweeperBarRotationMotor = new Relay(0);
+		ballIntakeSweeperBarRotationMotor.setSafetyEnabled(false);
+		
+		ballIntakeSweeperBarPositionSolenoid = new DoubleSolenoid(0, 2, 3);
+		
+		
+	}
+    // For example to map the left and right motors, you could define the
+    // following variables to use with your drivetrain subsystem.
+    // public static int leftMotor = 1;
+    // public static int rightMotor = 2;
+    
+    // If you are using multiple modules, make sure to define both the port
+    // number and the module. For example you with a rangefinder:
+    // public static int rangefinderPort = 1;
+    // public static int rangefinderModule = 1;
+}
