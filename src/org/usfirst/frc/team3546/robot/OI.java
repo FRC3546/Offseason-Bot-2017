@@ -28,7 +28,7 @@ public class OI {
 		leftJoystick = new Joystick(0);
 		rightJoystick = new Joystick(1);
 		
-		sweeperBarRotationInButton = new JoystickButton(leftJoystick,2);
+		sweeperBarRotationInButton = new JoystickButton(leftJoystick,1);
 		sweeperBarRotationInButton.whileHeld(new SweeperBarRotationIn());
 		sweeperBarRotationOutButton = new JoystickButton(leftJoystick,2);
 		sweeperBarRotationOutButton.whileHeld(new SweeperBarRotationOut());
