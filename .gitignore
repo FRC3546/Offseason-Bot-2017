@@ -48,4 +48,4 @@ Temporary Items
 bin/
 build/
 dist/
-sysProps.xml/
+sysProps.xml
