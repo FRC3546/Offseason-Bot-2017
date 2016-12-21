@@ -17,7 +17,12 @@ public class DriveTrain extends Subsystem{
 	public void stop(){
 		driveTrainMotors.tankDrive(0, 0);
 	}
-	public void takeJoystickInputs(Joystick leftJoystick, Joystick rightJoystick){
+
+	public void setMotorOutputs(double motorleft, double motorright){
+		driveTrainMotors.tankDrive(motorleft, motorright);
+	}
+
+	public void setMotorOutputs(Joystick leftJoystick, Joystick rightJoystick){
 		driveTrainMotors.tankDrive(leftJoystick, rightJoystick);
 	}
 	
