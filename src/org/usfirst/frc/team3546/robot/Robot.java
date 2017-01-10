@@ -9,6 +9,8 @@ import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import org.usfirst.frc.team3546.robot.commands.Drive;
 import org.usfirst.frc.team3546.robot.commands.autonomous.DriveForward;
 import org.usfirst.frc.team3546.robot.commands.autonomous.DriveForwardDropBall;
+import org.usfirst.frc.team3546.robot.commands.autonomous.DriveForwardDropBallTurn180;
+import org.usfirst.frc.team3546.robot.commands.autonomous.Turn180;
 import org.usfirst.frc.team3546.robot.subsystems.Arm;
 import org.usfirst.frc.team3546.robot.subsystems.DriveTrain;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
@@ -40,7 +42,7 @@ public class Robot extends IterativeRobot {
 		oi = new OI();
 		robotDriveTrain = new DriveTrain();
 		arm = new Arm();
-        autonomousCommand = new DriveForwardDropBall();
+        autonomousCommand = new DriveForwardDropBallTurn180();
         chooser = new SendableChooser();
         //chooser.addDefault("Default Auto", new ExampleCommand());
 //        chooser.addObject("My Auto", new MyAutoCommand());

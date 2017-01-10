@@ -4,9 +4,9 @@ import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc.team3546.robot.Robot;
 
 /**
- * Created by Wobot on 12/20/2016.
+ * Created by User on 1/9/2017.
  */
-public class DriveForward extends Command{
+public class Turn180 extends Command {
 
     protected void initialize() {
 
@@ -14,12 +14,13 @@ public class DriveForward extends Command{
 
 
     protected void execute() {
-        Robot.robotDriveTrain.setMotorOutputs(-.75, -.75);
+        Robot.robotDriveTrain.setMotorOutputs(-.75, .75);
     }
 
 
     protected boolean isFinished() {
-        if(timeSinceInitialized() > 2) {
+        if(timeSinceInitialized() > 1.5) {
+            System.out.println("inFinished");
             return true;
         }else{
             return false;
@@ -29,6 +30,7 @@ public class DriveForward extends Command{
 
     protected void end() {
         Robot.robotDriveTrain.stop();
+        System.out.println("Stop");
 
     }
 
@@ -38,4 +40,3 @@ public class DriveForward extends Command{
 
     }
 }
-
