@@ -32,7 +32,7 @@ public class RobotMap {
 		driveTrainMotors.setExpiration(.1);
 		driveTrainMotors.setSensitivity(.5);
 
-		//max output 0-100%
+		//max output 0-100
 		driveTrainMotors.setMaxOutput(1);
 
 		//inverts the direction of all motors
