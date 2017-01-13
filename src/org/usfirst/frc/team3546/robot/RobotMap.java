@@ -1,10 +1,6 @@
 package org.usfirst.frc.team3546.robot;
 
-import edu.wpi.first.wpilibj.DoubleSolenoid;
-import edu.wpi.first.wpilibj.Relay;
-import edu.wpi.first.wpilibj.RobotDrive;
-import edu.wpi.first.wpilibj.SpeedController;
-import edu.wpi.first.wpilibj.VictorSP;
+import edu.wpi.first.wpilibj.*;
 
 /**
  * The RobotMap is a mapping from the ports sensors and actuators are wired into
@@ -20,20 +16,25 @@ public class RobotMap {
 	
 	public static void init(){
 		
-		SpeedController frontLeftMotor = new VictorSP(3);
-		SpeedController frontRightMotor = new VictorSP(2);
-		SpeedController backLeftMotor = new VictorSP(1);
-		SpeedController backRightMotor = new VictorSP(0);
+		//SpeedController frontLeftMotor = new VictorSP(3);
+		//SpeedController frontRightMotor = new VictorSP(2);
+		//SpeedController backLeftMotor = new VictorSP(1);
+		//SpeedController backRightMotor = new VictorSP(0);
+
+		SpeedController frontLeftMotor = new Jaguar(3);
+		SpeedController frontRightMotor = new Jaguar(2);
+		SpeedController backLeftMotor = new Jaguar(1);
+		SpeedController backRightMotor = new Jaguar(0);
 
 		driveTrainMotors = new RobotDrive(frontLeftMotor, backLeftMotor, frontRightMotor, backRightMotor);
-		
+
 		driveTrainMotors.setSafetyEnabled(false);
 		driveTrainMotors.setExpiration(.1);
 		driveTrainMotors.setSensitivity(.5);
-		
+
 		//max output 0-100%
 		driveTrainMotors.setMaxOutput(1);
-		
+
 		//inverts the direction of all motors
 		driveTrainMotors.setInvertedMotor(RobotDrive.MotorType.kFrontLeft, true);
 		driveTrainMotors.setInvertedMotor(RobotDrive.MotorType.kFrontRight, true);

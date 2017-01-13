@@ -17,7 +17,6 @@ public class SweeperArmPositionLower extends Command {
     // Called just before this Command runs the first time
     protected void initialize() {
     	Robot.arm.setArmDown();
-        System.out.println("lower");
     }
 
 

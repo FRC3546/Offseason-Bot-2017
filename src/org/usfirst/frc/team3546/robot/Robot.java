@@ -31,7 +31,7 @@ public class Robot extends IterativeRobot {
 
     Command autonomousCommand;
     Command driveCommand;
-    SendableChooser chooser;
+    SendableChooser autoChooser;
 
     /**
      * This function is run when the robot is first started up and should be
@@ -42,11 +42,16 @@ public class Robot extends IterativeRobot {
 		oi = new OI();
 		robotDriveTrain = new DriveTrain();
 		arm = new Arm();
-        autonomousCommand = new DriveForwardDropBallTurn180();
-        chooser = new SendableChooser();
+
+        //autonomousCommand = new DriveForwardDropBallTurn180();
+
+        autoChooser = new SendableChooser();
+        autoChooser.addDefault("Default Auto", new DriveForwardDropBallTurn180());
+        autoChooser.addObject("Drive Forward", new DriveForward());
+        autoChooser.addObject("Drive Forward Drop Ball", new DriveForwardDropBall() );
         //chooser.addDefault("Default Auto", new ExampleCommand());
 //        chooser.addObject("My Auto", new MyAutoCommand());
-        SmartDashboard.putData("Auto mode", chooser);
+        SmartDashboard.putData("Auto mode", autoChooser);
     }
 	
 	/**
@@ -86,6 +91,7 @@ public class Robot extends IterativeRobot {
 		} */
     	
     	// schedule the autonomous command (example)
+        autonomousCommand = (Command) autoChooser.getSelected();
         if (autonomousCommand != null) autonomousCommand.start();
     }
 

@@ -2,6 +2,7 @@ package org.usfirst.frc.team3546.robot.commands.autonomous;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
 import org.usfirst.frc.team3546.robot.commands.SweeperArmPositionLower;
+import org.usfirst.frc.team3546.robot.commands.SweeperArmPositionRaise;
 import org.usfirst.frc.team3546.robot.commands.SweeperBarRotationOut;
 
 /**
@@ -12,6 +13,7 @@ public class DriveForwardDropBallTurn180 extends CommandGroup {
         addSequential(new DriveForward());
         addSequential(new SweeperArmPositionLower());
         addSequential(new SweeperBarRotationOut(), 1);
+        addSequential(new SweeperArmPositionRaise());
         addSequential(new Turn180());
         addSequential(new DriveForward());
         addSequential(new Turn180());

@@ -19,8 +19,7 @@ public class Turn180 extends Command {
 
 
     protected boolean isFinished() {
-        if(timeSinceInitialized() > 1.5) {
-            System.out.println("inFinished");
+        if(timeSinceInitialized() > 1.6) {
             return true;
         }else{
             return false;
@@ -30,7 +29,6 @@ public class Turn180 extends Command {
 
     protected void end() {
         Robot.robotDriveTrain.stop();
-        System.out.println("Stop");
 
     }
 
