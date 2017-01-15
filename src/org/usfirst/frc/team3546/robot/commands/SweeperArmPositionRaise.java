@@ -17,6 +17,7 @@ public class SweeperArmPositionRaise extends Command {
     // Called just before this Command runs the first time
     protected void initialize() {
     	Robot.arm.setArmUp();
+    	System.out.println("Raise");
     }
 
     // Called repeatedly when this Command is scheduled to run

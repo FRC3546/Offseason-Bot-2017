@@ -36,7 +36,6 @@ public void invertArm() {
 
 public DoubleSolenoid.Value getBarPosition() { return sweeperBarPositionSolenoid.get(); }
 
-@Override
 protected void initDefaultCommand() {
 	// TODO Auto-generated method stub
 	

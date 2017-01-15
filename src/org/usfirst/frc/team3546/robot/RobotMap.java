@@ -30,16 +30,15 @@ public class RobotMap {
 
 		driveTrainMotors.setSafetyEnabled(false);
 		driveTrainMotors.setExpiration(.1);
-		driveTrainMotors.setSensitivity(.5);
+		driveTrainMotors.setSensitivity(50);
 
-		//max output 0-100
 		driveTrainMotors.setMaxOutput(1);
 
 		//inverts the direction of all motors
-		driveTrainMotors.setInvertedMotor(RobotDrive.MotorType.kFrontLeft, true);
-		driveTrainMotors.setInvertedMotor(RobotDrive.MotorType.kFrontRight, true);
-		driveTrainMotors.setInvertedMotor(RobotDrive.MotorType.kRearLeft, true);
-		driveTrainMotors.setInvertedMotor(RobotDrive.MotorType.kRearRight, true);
+		//driveTrainMotors.setInvertedMotor(RobotDrive.MotorType.kFrontLeft, true);
+		//driveTrainMotors.setInvertedMotor(RobotDrive.MotorType.kFrontRight, true);
+		//driveTrainMotors.setInvertedMotor(RobotDrive.MotorType.kRearLeft, true);
+		//driveTrainMotors.setInvertedMotor(RobotDrive.MotorType.kRearRight, true);
 		
 		ballIntakeSweeperBarRotationMotor = new Relay(0);
 		ballIntakeSweeperBarRotationMotor.setSafetyEnabled(false);

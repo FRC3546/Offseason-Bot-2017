@@ -1,11 +1,6 @@
 package org.usfirst.frc.team3546.robot;
-
-import org.usfirst.frc.team3546.robot.commands.SweeperArmPositionToggle;
-import org.usfirst.frc.team3546.robot.commands.SweeperBarRotationIn;
-import org.usfirst.frc.team3546.robot.commands.SweeperBarRotationOut;
-
+import org.usfirst.frc.team3546.robot.commands.*;
 import edu.wpi.first.wpilibj.Joystick;
-import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
 /**
@@ -22,20 +17,27 @@ public class OI {
 	
 	public JoystickButton sweeperArmPositionRaiseButton;
 	public JoystickButton sweeperArmPositionLowerButton;
-	
-	
+
+	public JoystickButton invertDriveTrainButton;
+
+
 	public OI (){
 		leftJoystick = new Joystick(0);
 		rightJoystick = new Joystick(1);
 		
-		sweeperBarRotationInButton = new JoystickButton(leftJoystick,1);
-		sweeperBarRotationInButton.whileHeld(new SweeperBarRotationIn());
-		sweeperBarRotationOutButton = new JoystickButton(leftJoystick,2);
-		sweeperBarRotationOutButton.whileHeld(new SweeperBarRotationOut());
+		//sweeperBarRotationInButton = new JoystickButton(leftJoystick,1);
+		//sweeperBarRotationInButton.whileHeld(new SweeperBarRotationIn());
+		//sweeperBarRotationOutButton = new JoystickButton(leftJoystick,2);
+		//sweeperBarRotationOutButton.whileHeld(new SweeperBarRotationOut());
+
+		invertDriveTrainButton = new JoystickButton(rightJoystick, 1);
+		invertDriveTrainButton.whenPressed(new InvertDriveTrain());
+		invertDriveTrainButton = new JoystickButton(rightJoystick, 2);
+		invertDriveTrainButton.whenPressed(new InvertDriveTrain());
 		
-		sweeperArmPositionRaiseButton = new JoystickButton(rightJoystick, 3);
+		sweeperArmPositionRaiseButton = new JoystickButton(leftJoystick, 1);
 		sweeperArmPositionRaiseButton.whenPressed(new SweeperArmPositionToggle());
-		sweeperArmPositionLowerButton = new JoystickButton(rightJoystick, 2);
+		sweeperArmPositionLowerButton = new JoystickButton(leftJoystick, 2);
 		sweeperArmPositionLowerButton.whenPressed(new SweeperArmPositionToggle());
 		}
 	
