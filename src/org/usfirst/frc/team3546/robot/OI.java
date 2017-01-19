@@ -20,6 +20,10 @@ public class OI {
 
 	public JoystickButton invertDriveTrainButton;
 
+	public JoystickButton ForwardDriveButton;
+	public JoystickButton ReverseDriveButton;
+
+
 
 	public OI (){
 		leftJoystick = new Joystick(0);
@@ -30,15 +34,15 @@ public class OI {
 		//sweeperBarRotationOutButton = new JoystickButton(leftJoystick,2);
 		//sweeperBarRotationOutButton.whileHeld(new SweeperBarRotationOut());
 
-		invertDriveTrainButton = new JoystickButton(rightJoystick, 1);
-		invertDriveTrainButton.whenPressed(new InvertDriveTrain());
-		invertDriveTrainButton = new JoystickButton(rightJoystick, 2);
-		invertDriveTrainButton.whenPressed(new InvertDriveTrain());
+		ForwardDriveButton = new JoystickButton(rightJoystick, 3);
+		ForwardDriveButton.whenPressed(new ForwardDrive());
+		ReverseDriveButton = new JoystickButton(rightJoystick, 2);
+		ReverseDriveButton.whenPressed(new ReverseDrive());
 		
-		sweeperArmPositionRaiseButton = new JoystickButton(leftJoystick, 1);
-		sweeperArmPositionRaiseButton.whenPressed(new SweeperArmPositionToggle());
+		sweeperArmPositionRaiseButton = new JoystickButton(leftJoystick, 3);
+		sweeperArmPositionRaiseButton.whenPressed(new SweeperArmPositionLower());
 		sweeperArmPositionLowerButton = new JoystickButton(leftJoystick, 2);
-		sweeperArmPositionLowerButton.whenPressed(new SweeperArmPositionToggle());
+		sweeperArmPositionLowerButton.whenPressed(new SweeperArmPositionRaise());
 		}
 	
 	public Joystick getLeftJoystick() { return leftJoystick; }

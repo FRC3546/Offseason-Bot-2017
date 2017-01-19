@@ -19,6 +19,14 @@ public class DriveTrain extends Subsystem {
 		}
 	}
 
+	public void ForwardDrive(){
+		inverted = false;
+	}
+
+	public void ReverseDrive(){
+		inverted = true;
+	}
+
 	protected void initDefaultCommand() {}
 
 	public void stop() {

@@ -1,6 +1,8 @@
 
 package org.usfirst.frc.team3546.robot;
 
+
+import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
@@ -10,8 +12,8 @@ import org.usfirst.frc.team3546.robot.commands.Drive;
 import org.usfirst.frc.team3546.robot.commands.autonomous.DriveForward;
 import org.usfirst.frc.team3546.robot.commands.autonomous.DriveForwardDropBall;
 import org.usfirst.frc.team3546.robot.commands.autonomous.DriveForwardDropBallTurn180;
-import org.usfirst.frc.team3546.robot.commands.autonomous.Turn180;
 import org.usfirst.frc.team3546.robot.subsystems.Arm;
+import org.usfirst.frc.team3546.robot.subsystems.Camera;
 import org.usfirst.frc.team3546.robot.subsystems.DriveTrain;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -28,6 +30,7 @@ public class Robot extends IterativeRobot {
 	public static DriveTrain robotDriveTrain;
 	public static OI oi;
 	public static Arm arm;
+	public static Camera camera;
 
     Command autonomousCommand;
     Command driveCommand;
@@ -42,6 +45,9 @@ public class Robot extends IterativeRobot {
 		oi = new OI();
 		robotDriveTrain = new DriveTrain();
 		arm = new Arm();
+        camera = new Camera();
+
+        CameraServer.getInstance().startAutomaticCapture();
 
         //autonomousCommand = new DriveForwardDropBallTurn180();
 
